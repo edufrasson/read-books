@@ -1,16 +1,19 @@
+import type { RemovableRef } from '@vueuse/core'
+import { useStorage } from '@vueuse/core'
 import { defineStore } from 'pinia'
+import type { Summary } from '~/models/Summary'
 
 interface State {
-  summary: number
+  summaries: RemovableRef<Array<Summary>>
 }
 
 const useSummaryStore = defineStore('Summary', {
   state: (): State => ({
-    summary: 0,
+    summaries: useStorage('summary', []),
   }),
   actions: {
-    newRead() {
-      this.$state.summary += 10
+    add(summary: Summary) {
+      this.$state.summaries.push(summary)
     },
   },
 })

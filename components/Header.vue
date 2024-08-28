@@ -11,10 +11,16 @@ const totalPoints = computed(() => {
 <template>
   <div class="w-full h-16 flex justify-between p-5 border-b border-b-gray-400">
     <div class="flex gap-x-6">
-      <NuxtLink to="/">
+      <NuxtLink 
+        class="hover:text-green-600 transition-all"
+        to="/"
+      >
         Livros
       </NuxtLink>
-      <NuxtLink to="/books/new">
+      <NuxtLink 
+        class="hover:text-green-600 transition-all"
+        to="/books/new"
+      >
         Novo Livro
       </NuxtLink>
     </div>
